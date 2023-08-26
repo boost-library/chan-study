@@ -13,7 +13,7 @@ print(*arr)
 <summary></summary>
 
 - 유니코드값을 통한 인덱스
-- 
+  
 </details>
 
 ## 10807
@@ -80,6 +80,118 @@ print(cnt)
 
 </details>
 
+## 2577
+
+```python
+a = int(input())
+b = int(input())
+c = int(input())
+
+arr = [0]*10
+sum = a*b*c
+
+for i in str(sum):
+    arr[int(i)]+=1
+
+for i in arr:
+    print(i)
+```
+
+<details>
+<summary></summary>
+
+- 숫자 곱하고 각자리수 인덱스값을 통해 값 +1씩 전체 반복
+
+</details>
+
+## 1919
+
+```python
+a = input()
+b = input()
+cnt = [0]*26
+
+for i in a:
+    cnt[ord(i)-97]+=1
+
+for i in b:
+    cnt[ord(i)-97]-=1
+
+print(sum(map(abs,cnt)))
+```
+
+<details>
+<summary></summary>
+
+- 소문자 각각 길이 1000이하
+- 에너그램 -> 구성하는 문자의 개수가 각각 동일해야함
+- 문자열1의 각 알파벳 개수 - 문자열2 의 각 알파벳 개수
+- 문자열2에 있는게 a에 없을수도 -> 절대값으로 계산
+
+</details>
+
+
+## 11328
+
+```python
+n = int(input())
+
+for i in range(0,n):
+    a,b = map(str,input().split())
+    cnt = [0]*26
+
+    for i in a:
+        cnt[ord(i)-97]+=1
+
+    for i in b:
+        cnt[ord(i)-97]-=1
+        
+    if sum(map(abs,cnt))==0:
+        print("Possible")
+    else:
+        print("Impossible")
+```
+
+<details>
+<summary></summary>
+
+- 에너그램 문제와 동일
+- 구성하는 알파뱃의 개수가 동일해야함
+
+</details>
+
+
+## 1475
+
+```python
+n = input()
+arr = [1]*10
+cnt =1
+
+for i in n:
+    idx = int(i)
+    if(arr[idx]>0):
+        arr[idx] -=1
+    elif(idx==6 and arr[9]>0):
+        arr[9]-=1
+    elif(idx==9 and arr[6]>0):
+        arr[6]-=1
+    else:
+        for i, value in enumerate(arr):
+            arr[i] = value+1
+        cnt+=1
+        arr[idx]-=1
+
+print(cnt)
+```
+
+<details>
+<summary></summary>
+
+- 0~9까지 1set
+- 6,9는 뒤집어서 공유가능
+- 최소 set의 개수
+</details>
 
 
 
