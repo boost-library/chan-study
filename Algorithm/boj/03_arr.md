@@ -193,5 +193,40 @@ print(cnt)
 - 최소 set의 개수
 </details>
 
+## 3273
+
+```python
+import sys
+
+input = sys.stdin.readline
+n: int = int(input().rstrip())
+numbers: list = [0]*1_000_001
+
+arr: list = list(map(int, input().rstrip().split()))
+x: int = int(input().rstrip())
+
+cnt: int = 0
+
+for i in arr:
+    numbers[i] = 1
+
+for i in arr:
+    if(x-i > 0 and x-i<1_000_000):
+        if(numbers[x-i] == 1):
+            cnt += 1
+
+print(cnt//2)
+```
+
+<details>
+<summary></summary>
+
+- n개 값중 더해서 x가 나오는 쌍찾기
+- n은 십만 이하
+- 값들은 백만 이하
+- x는 2백만 이하
+- 백만개 원소 리스트 괜찮은지 생각해보기
+</details>
+
 
 
